@@ -1,0 +1,47 @@
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+  
+  <div>
+    <label for="username">Name</label>
+    
+    <input
+      type="text"
+      name="username"
+      id="username"
+      [formControl]="username"
+      class="form-control">
+      
+    <div [hidden]="username.valid || username.untouched">
+      
+      <div [hidden]="!username.hasError('minlength')" class = "alert alert-danger">
+        Username must be larger than 3 characters.
+      </div>
+      <div [hidden]="!username.hasError('required')"
+            class = "alert alert-danger">
+        Username is required.
+      </div>
+    </div>
+  </div>
+  
+  <div >
+    <label for="password">Password</label>
+    <input 
+      type="password"
+      name="password"
+      id="password" [formControl]="password"
+      class="form-control">
+      
+    <div [hidden]="password.valid || password.untouched">
+      
+      
+      <div [hidden]="!password.hasError('required')" class = "alert alert-danger">
+        Password is required.
+      </div>
+      <div [hidden]="!password.hasError('needsExclamation') || password.hasError('required')" class = "alert alert-danger">
+        Your password must have an exclamation mark!
+      </div>
+    </div>
+  </div>
+  
+  <button type="submit" [disabled]="!loginForm.valid">Log In</button>
+  <p *ngIf = "loginForm.valid" class="alert-success">Form values can be seen in the console on click of Submit !!</p>
+</form>

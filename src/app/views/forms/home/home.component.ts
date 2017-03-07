@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
     path: 'template-driven'
   }, {
     name: 'Model-Driven',
-    path: ''
+    path: 'model-driven'
   }];
   constructor() { }
 

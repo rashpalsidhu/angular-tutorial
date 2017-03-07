@@ -1,0 +1,19 @@
+<form>
+    <label for='managerName'>Enter the name of Manager</label>
+    <input type="text" name="managerName" id="managerName" [(ngModel)] = 'managername' #managerName = 'ngModel' class="form-control"/>
+</form>
+<div [ngSwitch] = "managerName.value" >
+  <ul *ngSwitchCase="'Prithveesh'"><li *ngFor = "let students of Prithveesh" class="alert-success">{{students}}</li></ul>
+  <ul *ngSwitchCase="'Meeraj'"><li *ngFor = "let students of Meeraj" class="alert-success">{{students}}</li></ul>
+  <ul *ngSwitchCase="'Raman'"><li *ngFor = "let students of Raman" class="alert-success">{{students}}</li></ul>
+</div>
+<br/><br/>
+<form>
+    <label for='colorName'>Enter the desired color of the below text..</label>
+    <input type="text" name="colorName" id="colorName" [(ngModel)] = name #colorName = 'ngModel' class="form-control"/>
+</form>
+<p [ngStyle]="{
+        'color': colorName.value,
+        'font-weight': 'bold',
+        'border-left': '3px solid '+colorName.value
+      }">The quick brown fox jumps over the lazy dog</p>

@@ -1,0 +1,15 @@
+<form #form="ngForm">
+<label for="userLocation">Enter Preferred Location: </label>
+<input type="text"
+       id="userLocation"
+       class="form-control"
+       name = "userLocation"
+       [(ngModel)] = name
+       #userLocation = "ngModel"/>
+<div  *ngFor = " let location of locations">
+ <p  *ngIf = 'location == userLocation.value' class="alert alert-success">
+ Congratulations !! The location is available.
+ </p>
+ 
+</div>
+</form>

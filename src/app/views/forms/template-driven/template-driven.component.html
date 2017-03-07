@@ -1,7 +1,11 @@
 <form #form='ngForm' (ngSubmit)="submitData(form.value)" class="form-group">
 
 <label for = 'Name'> Name: </label>
-<input type='text' placeholder='Name' id='Name'  name="Name" [(ngModel)] = name class="form-control"/><br/><br/>
+<input type='text' placeholder='Name' id='Name'  name="Name" [(ngModel)] = name class="form-control" 
+#username="ngModel" [style.border-left] = "(username.touched) ? username.value ? '4px solid green' : '4px solid red' : ''"/><br/><br/>
+<div [hidden]="!(username.touched && !username.value )" class="alert alert-danger">
+  Username is required !!
+</div>
 <label for = "location">Location: </label>
     <select  id="location" ngModel name="Location" class="form-control">
         <option *ngFor = "let location of locations">{{location}}</option>        
